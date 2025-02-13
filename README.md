@@ -1,5 +1,8 @@
-# README
+## Istio Architecture
 
+![Istio Architecture](arch.svg)
+
+## BookInfo Application
 
 ![BookInfo Application](noistio.svg)
 
