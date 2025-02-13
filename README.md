@@ -1,5 +1,8 @@
 # README
 
+
+![BookInfo Application](noistio.svg)
+
 ## Enable Sidecar
 
 ```sh
