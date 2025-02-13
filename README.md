@@ -1,5 +1,3 @@
-# istio-example
-
 # README
 
 ## Enable Sidecar
@@ -208,5 +206,14 @@ kubectl delete authorizationpolicy.security.istio.io/productpage-viewer
 kubectl delete authorizationpolicy.security.istio.io/details-viewer
 kubectl delete authorizationpolicy.security.istio.io/reviews-viewer
 kubectl delete authorizationpolicy.security.istio.io/ratings-viewer
+```
 
+```sh
 sh example/cleanup.sh
+```
+
+Reference link
+
+- https://istio.io/latest/docs/tasks/
+
+
