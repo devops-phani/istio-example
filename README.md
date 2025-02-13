@@ -1,6 +1,41 @@
+# Service Mesh - Istio
 ## Istio Architecture
 
 ![Istio Architecture](arch.svg)
+
+A service mesh is a dedicated infrastructure layer that manages service-to-service communication in a microservices architecture. It helps with service discovery, load balancing, security, observability, traffic management, and failure recovery. A service mesh ensures reliable and secure communication between microservices without requiring changes to the application code.
+
+Istio is the most popular, powerful, and trusted service mesh. Founded by Google, IBM and Lyft in 2016, Istio is a graduated project in the Cloud Native Computing Foundation alongside projects like Kubernetes and Prometheus.
+
+# Key Features of Istio
+
+## Traffic Management
+- Fine-grained traffic control with routing, load balancing, and retries
+- Canary releases and blue-green deployments
+- Traffic shifting and mirroring
+
+## Security
+- mTLS (Mutual TLS) for service-to-service encryption
+- Authentication & Authorization with Role-Based Access Control (RBAC)
+- Policy enforcement for securing services
+
+## Resilience & Fault Tolerance
+- Circuit breaking to prevent service failures from cascading
+- Retries, timeouts, and failover policies
+
+## Observability & Monitoring
+- **Tracing:** Distributed tracing with Jaeger/Zipkin
+- **Metrics:** Prometheus and Grafana integration
+- **Logging:** Collects logs for debugging
+
+## Service Discovery & Load Balancing
+- Automatically discovers services in Kubernetes
+- Implements intelligent load balancing
+
+## Extensibility
+- WebAssembly (Wasm) support for extending Envoy functionality
+
+
 
 ## BookInfo Application
 
