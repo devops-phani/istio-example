@@ -257,4 +257,92 @@ Reference link
 
 - https://istio.io/latest/docs/tasks/
 
+## Timeouts
+
+```sh
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: ratings
+spec:
+  hosts:
+  - ratings
+  http:
+  - route:
+    - destination:
+        host: ratings
+        subset: v1
+    timeout: 10s
+EOF
+```
+
+## Retries
+
+```sh
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: ratings
+spec:
+  hosts:
+  - ratings
+  http:
+  - route:
+    - destination:
+        host: ratings
+        subset: v1
+    retries:
+      attempts: 3
+      perTryTimeout: 2s
+EOF
+```
+## Circuit breakers
+
+```sh
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+    trafficPolicy:
+      connectionPool:
+        tcp:
+          maxConnections: 100
+EOF
+```
+
+## Mirroring
+
+```sh
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: httpbin
+spec:
+  hosts:
+    - httpbin
+  http:
+    - route:
+        - destination:
+            host: httpbin
+            subset: v1
+          weight: 100
+      mirror:
+        host: httpbin
+        subset: v2
+      mirrorPercentage:
+        value: 100.0
+EOF
+```
+
+
 
